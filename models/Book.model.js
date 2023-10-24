@@ -14,7 +14,7 @@ const bookSchema = new Schema({
       "Mystery",
       "Horror",
       "Romance",
-      "Science Fiction",
+      "Fiction",
       "Fantasy",
       "Drama",
       "Self-help",

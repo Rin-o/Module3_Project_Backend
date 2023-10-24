@@ -11,11 +11,11 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
-    password: {
+    passwordHash: {
       type: String,
       required: [true, 'Password is required.']
     },
-    image: { type: string, default: false},
+    image: { type: String, default: false},
     favoriteBooks: [String],
     favoriteAuthors: [String]
   },
