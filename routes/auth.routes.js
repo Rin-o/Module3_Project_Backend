@@ -12,6 +12,13 @@ router.get("/", (req, res, next) => {
 
 // POST to Signup
 router.post('/signup', async (req, res) => {
+
+    // User.findOne( req.body.email )
+    // .then ((foundUser) => {
+    //     if (foundUser) {
+    //         res.status(400).json({ message: "User already exists" })
+    //     }
+    // })
     const salt = bcrypt.genSaltSync(13)
     const passwordHash = bcrypt.hashSync(req.body.password, salt)
 
