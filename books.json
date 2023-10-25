@@ -1,5 +1,5 @@
 {
-    "books": [
+    "books":[
         {
             "title": "Elantris",
             "authorId": "6537e7aaebd97d3b337bd40e",
@@ -102,7 +102,7 @@
         {
             "title": "Atomic Habits",
             "authorId": "6537e7aaebd97d3b337bd418",
-            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Atomic_habits.jpg",
             "publisher": "Penguin Random House",
             "publishingDate": "2018-01-01",
             "description": "Atomic Habits is a self-help and personal development book that delves into the science of habit formation and offers practical strategies for building good habits, breaking bad ones, and making lasting changes in one's life. The author, James Clear, draws on scientific research and real-world examples to explain how small, incremental changes (atomic habits) can lead to significant improvements in personal and professional life. Clear provides a comprehensive framework for understanding how habits work, the cues that trigger them, the routines that define them, and the rewards that reinforce them. The book offers actionable advice on how to leverage these principles to create positive and transformative changes in behavior.",
