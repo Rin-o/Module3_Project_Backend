@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
   title: { type : String, unique: true, require: true },
   image: { type : String },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: "Author" },
+  authorId: { type: mongoose.Schema.Types.ObjectId, ref: "Author" },
   publisher: { type: String },
   publishingDate: { type: Date },
   description: { type: String },
-  categories: {
+  categories: [ {
     type: String,
     enum: [
       "Mystery",
@@ -19,7 +19,7 @@ const bookSchema = new Schema({
       "Drama",
       "Self-help",
     ],
-  },
+  } ],
 });
 
 const Book = mongoose.model("Book", bookSchema);
