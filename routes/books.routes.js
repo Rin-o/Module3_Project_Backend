@@ -7,17 +7,6 @@ const Author = require("../models/Author.model")
 
 
 /* GET  all books page */
-/*router.get('/books', isAuthenticated, async (req, res) => {
-  try {
-    const responseFromAPI = await fetch('http://localhost:5005/books')
-    if (responseFromAPI.ok) {
-      const booksFromAPI = await responseFromAPI.json()
-      res.json({ books: booksFromAPI })
-    }
-  } catch (error) {
-    console.error(error)
-  }
-})*/
 
 router.get("/", (req, res, next) => {
   
@@ -32,19 +21,25 @@ console.log({error})
 });
 
 /* GET  a specific book page (detail)*/
-router.get('/:id', async (req, res) => {
-  try {
-    const responseFromAPI = await fetch(
-      `http://localhost:5005/books/${req.params.id}`
-    )
-    if (responseFromAPI.ok) {
-      const bookFromAPI = await responseFromAPI.json()
-      res.json({ book: bookFromAPI })
+
+router.get('/:bookId', async (req, res) => {
+  const { bookId } = req.params
+  if (mongoose.isValidObjectId(bookId)) {
+    try {
+      const currentBook = await Book.findById(bookId).populate('authorId')
+      if (currentBook) {
+        console.log(currentBook)
+        res.json({ book: currentBook })
+      } else {
+        res.status(404).json({ message: 'Book not found' })
+      }
+    } catch (error) {
+      console.log(error)
+      res.status(400).json({ error })
     }
-  } catch (error) {
-    console.error(error)
+  } else {
+    res.status(400).json({ message: 'The id seems wrong' })
   }
 })
-
 
 module.exports = router
