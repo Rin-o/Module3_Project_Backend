@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
   title: { type : String, unique: true, require: true },
   image: { type : String },
-  authorId: { type: mongoose.Schema.Types.ObjectId, ref: "Author" },
+  authorId: { type: Schema.Types.ObjectId, ref: "Author" },
   publisher: { type: String },
   publishingDate: { type: Date },
   description: { type: String },

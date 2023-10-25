@@ -12,7 +12,7 @@ const MONGO_URI =
     try {
     await mongoose.connect (MONGO_URI)
     const newItems = await Book.insertMany(books.books)
-    // const newAuthors = await Author.insertMany(authors.authors)
+    //const newAuthors = await Author.insertMany(authors.authors)
     // console.log(newItems)
     } catch (error) {
       console.log(error)
