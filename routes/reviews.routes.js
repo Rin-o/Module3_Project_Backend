@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const Review = require('../models/Review.model'); 
+const User = require('../models/User.model')
+const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
+
 
 /* GET  all reviews*/
 
-router.get("/", (req, res, next) => {
-  
-  Book.find() .populate('authorId')
-    .then((booksFromAPI) => {
-      console.log(booksFromAPI);
-      res.json(booksFromAPI);
-    })
-    .catch((error) => {
-console.log({error})
-    });
+router.get("/", async (req, res) => {
+  try {
+    const reviews = await Review.find();
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(500).json({ error: "Status code: 500 (Internal Server Error)" });
+  }
 });
 
 // Post to create a new review
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
   try {
     const newReview = await Review.create(req.body)
     // .populate('User')
