@@ -7,7 +7,7 @@ const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
 /* GET  all reviews*/
 
-router.get("/", async (req, res) => {
+router.get("/", isAuthenticated, async (req, res) => {
   try {
     const reviews = await Review.find();
     res.status(200).json(reviews);
@@ -19,8 +19,7 @@ router.get("/", async (req, res) => {
 // Post to create a new review
 router.post('/', isAuthenticated, async (req, res) => {
   try {
-    const newReview = await Review.create(req.body)
-    // .populate('User')
+    const newReview = await Review.create(req.body).populate('User')
     res.status(201).json({ review: newReview})
   } catch (error) {
     console.log(error)
@@ -29,20 +28,20 @@ router.post('/', isAuthenticated, async (req, res) => {
 });
 
 // Update a review by ID
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
   
     try {
       const newReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
       res.status(202).json({ review: newReview })
     } catch (error) {
       console.log(error)
-      res.status(400).json({ error: 'Failed to update the user' })
+      res.status(400).json({ error: 'Failed to update the review' })
     }
 });
 
 // Delete a review by ID
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
     await Review.findByIdAndDelete(req.params.id)
     res.status(202).json({ message: 'Review deleted' })
   })
