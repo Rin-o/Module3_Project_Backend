@@ -10,7 +10,7 @@ const Author = require("../models/Author.model")
 
 router.get("/", (req, res, next) => {
   
-  Book.find() .populate('authorId')
+  Book.find().populate('authorId')
     .then((booksFromAPI) => {
       console.log(booksFromAPI);
       res.json(booksFromAPI);
