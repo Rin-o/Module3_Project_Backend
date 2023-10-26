@@ -1,9 +1,10 @@
+const express = require('express');
 const router = require('express').Router()
 const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
 
 // POST to create a new user
-router.post('/', async (req, res) => { //or should it be "profile"?
+router.post('/', async (req, res) => {
     try {
       const newUser = await User.create(req.body)
       res.status(201).json({ user: newUser })
@@ -14,7 +15,7 @@ router.post('/', async (req, res) => { //or should it be "profile"?
   })
 
   // PUT to update an existing user
-  router.put('/userId', isAuthenticated, async (req, res) => {
+  router.put('/:userId', isAuthenticated, async (req, res) => {
     const { userId } = req.params
   
     try {
@@ -28,11 +29,16 @@ router.post('/', async (req, res) => { //or should it be "profile"?
 
 
   // DELETE to delete one user
-  router.delete('/userId', isAuthenticated, async (req, res) => {
-  const { userId } = req.params
+  router.delete('/:userId', isAuthenticated, async (req, res) => {
+  const { userId } = req.params;
+  try {
   await User.findByIdAndDelete(userId)
-  res.status(202).json({ message: 'User deleted' })
-})
+  res.status(202).json({ message: 'User deleted' });
+  } catch (error) {
+    console.log(error)
+    res.status(400).json({ error: 'Failed to delete the user' });
+  }
+});
 
 
   module.exports = router
