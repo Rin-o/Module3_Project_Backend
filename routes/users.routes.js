@@ -14,7 +14,7 @@ router.post('/', async (req, res) => { //or should it be "profile"?
   })
 
   // PUT to update an existing user
-  router.put('/userId', async (req, res) => {
+  router.put('/userId', isAuthenticated, async (req, res) => {
     const { userId } = req.params
   
     try {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => { //or should it be "profile"?
 
 
   // DELETE to delete one user
-  router.delete('/userId', async (req, res) => {
+  router.delete('/userId', isAuthenticated, async (req, res) => {
   const { userId } = req.params
   await User.findByIdAndDelete(userId)
   res.status(202).json({ message: 'User deleted' })
