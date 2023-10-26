@@ -8,7 +8,7 @@ const Author = require("../models/Author.model")
 
 /* GET  all books page */
 
-router.get("/", (req, res, next) => {
+router.get("/", isAuthenticated, (req, res, next) => {
   
   Book.find().populate('authorId')
     .then((booksFromAPI) => {
@@ -22,7 +22,7 @@ console.log({error})
 
 /* GET  a specific book page (detail)*/
 
-router.get('/:bookId', async (req, res) => {
+router.get('/:bookId', isAuthenticated, async (req, res) => {
   const { bookId } = req.params
   if (mongoose.isValidObjectId(bookId)) {
     try {
