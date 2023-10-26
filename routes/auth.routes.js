@@ -12,13 +12,6 @@ router.get("/", (req, res, next) => {
 
 // POST to Signup
 router.post('/signup', async (req, res) => {
-
-    // User.findOne( req.body.email )
-    // .then ((foundUser) => {
-    //     if (foundUser) {
-    //         res.status(400).json({ message: "User already exists" })
-    //     }
-    // })
     const salt = bcrypt.genSaltSync(13)
     const passwordHash = bcrypt.hashSync(req.body.password, salt)
 
@@ -35,8 +28,8 @@ router.post('/signup', async (req, res) => {
 
 // POST to Login
 router.post('/login', async (req, res) => {
-    const { userName, password } = req.body
-    const potentialUser = await User.findOne({ userName })
+    const { email, password } = req.body
+    const potentialUser = await User.findOne({ email })
     if (potentialUser) {
         if (bcrypt.compareSync(password, potentialUser.passwordHash)) {
 
