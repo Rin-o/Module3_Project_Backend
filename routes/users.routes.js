@@ -3,58 +3,36 @@ const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
 
 // POST to create a new user
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => { //or should it be "profile"?
     try {
-      const responseFromAPI = await fetch(`http://localhost:5005/users`, {
-        method: 'POST',
-        body: JSON.stringify(req.body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      if (responseFromAPI.ok) {
-        const newUser = await responseFromAPI.json()
-        res.status(201).json(newUser)
-      }
+      const newUser = await User.create(req.body)
+      res.status(201).json({ user: newUser })
     } catch (error) {
       console.log(error)
+      res.status(400).json({ error: 'Failed to create a user' });
     }
   })
 
   // PUT to update an existing user
-  router.put('/:id', async (req, res) => {
-    console.log(req.body)
+  router.put('/userId', async (req, res) => {
+    const { userId } = req.params
+  
     try {
-      const responseFromAPI = await fetch(
-        `http://localhost:5005/users/${req.params.id}`,
-        {
-          method: 'PUT',
-          body: JSON.stringify(req.body),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      if (responseFromAPI.ok) {
-        const userFromAPI = await responseFromAPI.json()
-        res.json({ user: userFromAPI })
-      }
+      const newUser = await User.findByIdAndUpdate(userId, req.body, { new: true })
+      res.status(202).json({ user: newUser })
     } catch (error) {
-      console.error(error)
+      console.log(error)
+      res.status(400).json({ error: 'Failed to update the user' })
     }
   })
 
+
   // DELETE to delete one user
-  router.delete('/:id', async (req, res) => {
-    const { id } = req.params
-    try {
-      await fetch(`http://localhost:5005/api/users/${id}`, {
-        method: 'DELETE',
-      })
-      res.status(204).send()
-    } catch (error) {
-      res.status(500).json({ error })
-    }
-  })
+  router.delete('/userId', async (req, res) => {
+  const { userId } = req.params
+  await User.findByIdAndDelete(userId)
+  res.status(202).json({ message: 'User deleted' })
+})
+
 
   module.exports = router
