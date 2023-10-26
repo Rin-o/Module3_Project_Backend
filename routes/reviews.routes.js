@@ -7,19 +7,23 @@ const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
 /* GET  all reviews*/
 
-router.get("/", isAuthenticated, async (req, res) => {
+router.get("/:bookId/reviews", async (req, res) => {
   try {
-    const reviews = await Review.find();
+    const { bookId } = req.params
+    const reviews = await Review.find({ book : bookId}).populate('user')
     res.status(200).json(reviews);
   } catch (error) {
-    res.status(500).json({ error: "Status code: 500 (Internal Server Error)" });
+        console.log(error)
+        res.status(500).json({ error: "Status code: 500 (Internal Server Error)" });
+
   }
 });
 
 // Post to create a new review
 router.post('/', isAuthenticated, async (req, res) => {
   try {
-    const newReview = await Review.create(req.body).populate('User')
+    const newReview = await Review.create({...req.body, user: req.payload.userId})
+
     res.status(201).json({ review: newReview})
   } catch (error) {
     console.log(error)
