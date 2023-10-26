@@ -40,7 +40,7 @@ const usersRouter = require("./routes/users.routes");
 app.use("/users", usersRouter);  
 
 const reviewsRouter = require("./routes/reviews.routes"); 
-app.use("/reviews", usersReviews);  
+app.use("/reviews", reviewsRouter);  
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
