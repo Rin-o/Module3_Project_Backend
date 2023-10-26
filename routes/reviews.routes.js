@@ -20,6 +20,7 @@ console.log({error})
 router.post('/', async (req, res) => {
   try {
     const newReview = await Review.create(req.body)
+    // .populate('User')
     res.status(201).json({ review: newReview})
   } catch (error) {
     console.log(error)
