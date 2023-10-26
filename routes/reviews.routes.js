@@ -29,7 +29,7 @@ router.put('/:id', async (req, res) => {
 // Delete a review by ID
 
 router.delete('/:id', async (req, res) => {
-    await User.findByIdAndDelete(req.params.id)
+    await Review.findByIdAndDelete(req.params.id)
     res.status(202).json({ message: 'Review deleted' })
   })
 
