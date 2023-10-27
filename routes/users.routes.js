@@ -2,12 +2,13 @@ const express = require('express');
 const router = require('express').Router()
 const User = require("../models/User.model")
 
-const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
+const { isAuthenticated } = require('../middlewares/routeGuard.middleware');
+const { default: mongoose } = require('mongoose');
 
 /* GET  a specific user page (detail)*/
 
 router.get('/:userId', isAuthenticated, async (req, res) => {
-    const { userId } = req.params
+    const { userId } = req.payload
     if (mongoose.isValidObjectId(userId)) {
       try {
         const currentUser = await User.findById(userId)
