@@ -21,7 +21,7 @@ require("./config")(app);
 
 app.use(
     cors({
-      origin: [`http://localhost:5173`,`http://127.0.0.1:5173`, `https://booklovers-ironhack.netlify.app`],
+      origin: [`https://booklovers-ironhack.netlify.app`, `http://localhost:5173`,`http://127.0.0.1:5173`],
         })
       );
 
