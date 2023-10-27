@@ -16,10 +16,18 @@ router.post('/signup', async (req, res) => {
     const passwordHash = bcrypt.hashSync(req.body.password, salt)
 
     try {
-        const newUser = await User.create({ ...req.body, passwordHash }) 
+        if(req.body.image === ""){
+        const newUser = await User.create({ email: req.body.email, userName: req.body.userName, passwordHash }) 
         const userCopy = newUser._doc
         delete userCopy.passwordHash
         res.status(201).json(userCopy)
+        } else {
+            const newUser = await User.create({ ...req.body, passwordHash }) 
+            const userCopy = newUser._doc
+            delete userCopy.passwordHash
+            res.status(201).json(userCopy)
+        }
+        
     } catch (error) {
         console.log(error)
         res.status(400).json(error)
@@ -29,10 +37,10 @@ router.post('/signup', async (req, res) => {
 // POST to Login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body
+
     const potentialUser = await User.findOne({ email })
     if (potentialUser) {
         if (bcrypt.compareSync(password, potentialUser.passwordHash)) {
-
             const authToken = jwt.sign({ userId: potentialUser._id }, process.env.TOKEN_SECRET, {
                 algorithm: 'HS256',
                 expiresIn: '6h',
