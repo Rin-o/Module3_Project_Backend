@@ -7,7 +7,7 @@ const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
 /* GET  all reviews*/
 
-router.get("/:bookId/reviews", async (req, res) => {
+router.get('/:bookId/reviews', isAuthenticated, async (req, res) => {
   try {
     const { bookId } = req.params
     const reviews = await Review.find({ book : bookId}).populate('user')
