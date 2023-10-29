@@ -2,7 +2,7 @@
     "books": [
         {
             "title": "Elantris",
-            "authorId": "6537e7aaebd97d3b337bd40e",
+            "authorId": "653bdc70171a9273503d1889",
             "image": "http://books.google.com/books/content?id=ZnHFzj4wKIQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
             "publisher": "Macmillan",
             "publishingDate": "2007-04-01",
@@ -11,7 +11,7 @@
         },
         {
             "title": "Pride and Prejudice",
-            "authorId": "6537e7aaebd97d3b337bd40f",
+            "authorId": "653bdc70171a9273503d188a",
             "image": "http://books.google.com/books/content?id=iV9kCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
             "publisher": "Al Manhal",
             "publishingDate": "2007-01-01",
@@ -20,7 +20,7 @@
         },
         {
             "title": "The Great Gatsby",
-            "authorId": "6537e7aaebd97d3b337bd410",
+            "authorId": "653bdc70171a9273503d188b",
             "image": "http://books.google.com/books/content?id=HestSXO362YC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
             "publisher": "Wordsworth Editions",
             "publishingDate": "1993-01-01",
@@ -29,7 +29,7 @@
         },
         {
             "title": "The Fellowship of the Ring",
-            "authorId": "6537e7aaebd97d3b337bd411",
+            "authorId": "653bdc70171a9273503d188c",
             "image": "https://upload.wikimedia.org/wikipedia/en/8/8e/The_Fellowship_of_the_Ring_cover.gif",
             "publisher": "George Allen & Unwin",
             "publishingDate": "1954-07-29",
@@ -38,7 +38,7 @@
         },
         {
             "title": "Sapiens: A Brief History of Humankind",
-            "authorId": "6537e7aaebd97d3b337bd412",
+            "authorId": "653bdc70171a9273503d188d",
             "image": "https://www.deanbokhari.com/wp-content/uploads/2019/09/SapiensbyYuvalNoahHarariBookCover.jpg",
             "publisher": "Dvir Publishing House Ltd.",
             "publishingDate": "2011-01-01",
@@ -47,7 +47,7 @@
         },
         {
             "title": "Hamlet",
-            "authorId": "6537e7aaebd97d3b337bd413",
+            "authorId": "653bdc70171a9273503d188e",
             "image": "http://books.google.com/books/content?id=0AlCBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
             "publisher": "Bloomsbury Publishing",
             "publishingDate": "2014-09-25",
@@ -56,7 +56,7 @@
         },
         {
             "title": "Finders Keepers",
-            "authorId": "6537e7aaebd97d3b337bd414",
+            "authorId": "653bdc70171a9273503d188f",
             "image": "http://books.google.com/books/content?id=c89NCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
             "publisher": "Simon and Schuster",
             "publishingDate": "2016-01-05",
@@ -65,7 +65,7 @@
         },
         {
             "title": "The Hound of the Baskervilles",
-            "authorId": "6537e7aaebd97d3b337bd415",
+            "authorId": "653bdc70171a9273503d1890",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Cover_%28Hound_of_Baskervilles%2C_1902%29.jpg/440px-Cover_%28Hound_of_Baskervilles%2C_1902%29.jpg",
             "publisher": "George Newnes Ltd",
             "publishingDate": "1902-03-25",
@@ -74,7 +74,7 @@
         },
         {
             "title": "The Alienist",
-            "authorId": "6537e7aaebd97d3b337bd416",
+            "authorId": "653bdc70171a9273503d1891",
             "image": "https://upload.wikimedia.org/wikipedia/en/2/2d/Alienist-thumb.jpg",
             "publisher": "Random House",
             "publishingDate": "1994-01-01",
@@ -83,7 +83,7 @@
         },
         {
             "title": "The Two Towers",
-            "authorId": "6537e7aaebd97d3b337bd411",
+            "authorId": "653bdc70171a9273503d188c",
             "image": "https://upload.wikimedia.org/wikipedia/en/a/a1/The_Two_Towers_cover.gif",
             "publisher": "George Allen & Unwin",
             "publishingDate": "1954-11-11",
@@ -92,7 +92,7 @@
         },
         {
             "title": "Rich Dad Poor Dad",
-            "authorId": "6537e7aaebd97d3b337bd417",
+            "authorId": "653bdc70171a9273503d1892",
             "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg",
             "publisher": "Warner Books",
             "publishingDate": "2000-04-01",
@@ -101,7 +101,7 @@
         },
         {
             "title": "Atomic Habits",
-            "authorId": "6537e7aaebd97d3b337bd418",
+            "authorId": "653bdc70171a9273503d1893",
             "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Rich_Dad_Poor_Dad.jpg",
             "publisher": "Penguin Random House",
             "publishingDate": "2018-01-01",
@@ -110,7 +110,7 @@
         },
         {
             "title": "Murder on the Orient Express",
-            "authorId": "6537e7aaebd97d3b337bd419",
+            "authorId": "653bdc70171a9273503d1894",
             "image": "https://upload.wikimedia.org/wikipedia/en/c/c0/Murder_on_the_Orient_Express_First_Edition_Cover_1934.jpg",
             "publisher": "Collins Crime Club",
             "publishingDate": "1934-01-01",
@@ -119,7 +119,7 @@
         },
         {
             "title": "Persuasion",
-            "authorId": "6537e7aaebd97d3b337bd40f",
+            "authorId": "653bdc70171a9273503d188a",
             "image": "https://diaryofaneccentric.files.wordpress.com/2010/10/persuasion.jpg",
             "publisher": "John Murray",
             "publishingDate": "1817-12-20",
@@ -128,7 +128,7 @@
         },
         {
             "title": "Cujo",
-            "authorId": "6537e7aaebd97d3b337bd414",
+            "authorId": "653bdc70171a9273503d188f",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Cujo_%281981%29_front_cover%2C_first_edition.jpg/400px-Cujo_%281981%29_front_cover%2C_first_edition.jpg",
             "publisher": "Viking Press",
             "publishingDate": "1981-09-08",
@@ -137,7 +137,7 @@
         },
         {
             "title": "Macbeth",
-            "authorId": "6537e7aaebd97d3b337bd413",
+            "authorId": "653bdc70171a9273503d188e",
             "image": "https://m.media-amazon.com/images/I/41qdsk2J12L.jpg",
             "publisher": "Edward Blount and William Jaggard",
             "publishingDate": "1623-01-01",
@@ -146,7 +146,7 @@
         },
         {
             "title": "The Return of the King",
-            "authorId": "6537e7aaebd97d3b337bd411",
+            "authorId": "653bdc70171a9273503d188c",
             "image": "https://upload.wikimedia.org/wikipedia/en/1/11/The_Return_of_the_King_cover.gif",
             "publisher": "George Allen & Unwin",
             "publishingDate": "1955-10-20",
@@ -155,7 +155,7 @@
         },
         {
             "title": "Death on the Nile",
-            "authorId": "6537e7aaebd97d3b337bd419",
+            "authorId": "653bdc70171a9273503d1894",
             "image": "https://upload.wikimedia.org/wikipedia/en/9/96/Death_on_the_Nile_First_Edition_Cover_1937.jpg",
             "publisher": "Collins Crime Club",
             "publishingDate": "1937-11-01",
@@ -164,7 +164,7 @@
         },
         {
             "title": "Mistborn: The Final Empire",
-            "authorId": "6537e7aaebd97d3b337bd40e",
+            "authorId": "653bdc70171a9273503d1889",
             "image": "https://upload.wikimedia.org/wikipedia/en/4/44/Mistborn-cover.jpg",
             "publisher": "Tor Books",
             "publishingDate": "2006-07-17",
@@ -173,7 +173,7 @@
         },
         {
             "title": "A Game of Thrones",
-            "authorId": "6537e7aaebd97d3b337bd41a",
+            "authorId": "653bdc70171a9273503d1895",
             "image": "https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg",
             "publisher": "Bantam Spectra",
             "publishingDate": "1996-08-01",
@@ -182,7 +182,7 @@
         },
         {
             "title": "The Godfather",
-            "authorId": "6537e7aaebd97d3b337bd41b",
+            "authorId": "653bdc70171a9273503d1896",
             "image": "https://upload.wikimedia.org/wikipedia/en/f/f4/Godfather-Novel-Cover.png",
             "publisher": "G. P. Putnam's Sons",
             "publishingDate": "1969-03-10",
