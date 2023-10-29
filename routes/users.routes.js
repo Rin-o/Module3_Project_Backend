@@ -7,7 +7,7 @@ const { default: mongoose } = require('mongoose');
 
 /* GET  a specific user page (detail)*/
 
-router.get('/data', isAuthenticated, async (req, res) => {
+router.get('/', isAuthenticated, async (req, res) => {
     const { userId } = req.payload
     if (mongoose.isValidObjectId(userId)) {
       try {
