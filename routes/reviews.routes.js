@@ -19,12 +19,13 @@ router.get('/:bookId/reviews', isAuthenticated, async (req, res) => {
   }
 });
 
+
 // Post to create a new review
 router.post('/', isAuthenticated, async (req, res) => {
   try {
     const newReview = await Review.create({...req.body, user: req.payload.userId})
-
-    res.status(201).json({ review: newReview})
+    const fullNewReview = await Review.findById(newReview._id).populate('user')
+    res.status(201).json({ review: fullNewReview})
   } catch (error) {
     console.log(error)
     res.status(400).json({ error: 'Failed to create a review' });
