@@ -36,7 +36,8 @@ router.put('/:id', isAuthenticated, async (req, res) => {
   
     try {
       const oneReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      res.status(202).json({ review: oneReview })
+      const fullOneReview = await Review.findById(oneReview._id).populate('user')
+      res.status(202).json({ review: fullOneReview })
     } catch (error) {
       console.log(error)
       res.status(400).json({ error: 'Failed to update the review' })
