@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { isAuthenticated } = require('../middlewares/routeGuard.middleware')
 
+const uploader = require('../middlewares/cloudinary.config');
+
 const router = require('express').Router()
 
 
@@ -11,18 +13,18 @@ router.get("/", (req, res, next) => {
 });
 
 // POST to Signup
-router.post('/signup', async (req, res) => {
+router.post('/signup', uploader.single("image"), async (req, res) => {
+    console.log('file is: ', req.file, req.body)
     const salt = bcrypt.genSaltSync(13)
     const passwordHash = bcrypt.hashSync(req.body.password, salt)
-
     try {
-        if(req.body.image === ""){
+        if(!req.file){
         const newUser = await User.create({ email: req.body.email, userName: req.body.userName, passwordHash }) 
         const userCopy = newUser._doc
         delete userCopy.passwordHash
         res.status(201).json(userCopy)
         } else {
-            const newUser = await User.create({ ...req.body, passwordHash }) 
+            const newUser = await User.create({ ...req.body, passwordHash, image: req.file.path }) 
             const userCopy = newUser._doc
             delete userCopy.passwordHash
             res.status(201).json(userCopy)
