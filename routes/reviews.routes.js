@@ -19,7 +19,7 @@ router.get('/:bookId/reviews', isAuthenticated, async (req, res) => {
   }
 });
 
-// Post to create a new review
+// Post to create a new review to add isAuthenticated, 
 router.post('/', isAuthenticated, async (req, res) => {
   try {
     const newReview = await Review.create({...req.body, user: req.payload.userId})
@@ -31,12 +31,12 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-// Update a review by ID
+// Update a review by ID to add isAuthenticated, 
 router.put('/:id', isAuthenticated, async (req, res) => {
   
     try {
-      const newReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      res.status(202).json({ review: newReview })
+      const oneReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      res.status(202).json({ review: oneReview })
     } catch (error) {
       console.log(error)
       res.status(400).json({ error: 'Failed to update the review' })
