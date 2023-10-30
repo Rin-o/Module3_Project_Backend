@@ -19,7 +19,6 @@ router.get('/:bookId/reviews', isAuthenticated, async (req, res) => {
   }
 });
 
-
 // Post to create a new review
 router.post('/', isAuthenticated, async (req, res) => {
   try {
@@ -32,12 +31,13 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-// Update a review by ID
+// Update a review by ID to add isAuthenticated, 
 router.put('/:id', isAuthenticated, async (req, res) => {
   
     try {
-      const newReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      res.status(202).json({ review: newReview })
+      const oneReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      const fullOneReview = await Review.findById(oneReview._id).populate('user')
+      res.status(202).json({ review: fullOneReview })
     } catch (error) {
       console.log(error)
       res.status(400).json({ error: 'Failed to update the review' })
@@ -50,5 +50,9 @@ router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
     await Review.findByIdAndDelete(req.params.id)
     res.status(202).json({ message: 'Review deleted' })
   })
+
+  router.use((req, res, next) => {
+    res.status(404).send('404 - Page Not Found');
+  });
 
 module.exports = router;
