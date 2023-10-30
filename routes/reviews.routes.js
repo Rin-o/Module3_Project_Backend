@@ -50,4 +50,8 @@ router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
     res.status(202).json({ message: 'Review deleted' })
   })
 
+  router.use((req, res, next) => {
+    res.status(404).send('404 - Page Not Found');
+  });
+
 module.exports = router;
