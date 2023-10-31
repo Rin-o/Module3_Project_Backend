@@ -87,8 +87,4 @@ router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-  router.use((req, res, next) => {
-    res.status(404).send('404 - Page Not Found');
-  });
-
 module.exports = router;
