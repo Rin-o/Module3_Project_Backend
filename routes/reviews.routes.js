@@ -19,8 +19,12 @@ router.get('/:bookId/reviews', isAuthenticated, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 
 // Post to create a review
+=======
+// Post to create a new review
+>>>>>>> 32609c0940b29a45b465373f825ce3c101c583a7
 router.post('/', isAuthenticated, async (req, res) => {
   try {
     const newReview = await Review.create({...req.body, user: req.payload.userId})
@@ -32,12 +36,23 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-// Update a review by ID
+// Update a review by ID to add isAuthenticated, 
 router.put('/:id', isAuthenticated, async (req, res) => {
+<<<<<<< HEAD
   try {
     const review = await Review.findById(req.params.id);
     if (!review) {
       return res.status(404).json({ error: 'Review not found' });
+=======
+  
+    try {
+      const oneReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      const fullOneReview = await Review.findById(oneReview._id).populate('user')
+      res.status(202).json({ review: fullOneReview })
+    } catch (error) {
+      console.log(error)
+      res.status(400).json({ error: 'Failed to update the review' })
+>>>>>>> 32609c0940b29a45b465373f825ce3c101c583a7
     }
 
     if (review.user.toString() !== req.payload.userId) {
@@ -71,5 +86,9 @@ router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
     res.status(400).json({ error: 'Failed to delete the review' });
   }
 });
+
+  router.use((req, res, next) => {
+    res.status(404).send('404 - Page Not Found');
+  });
 
 module.exports = router;

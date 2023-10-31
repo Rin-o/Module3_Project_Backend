@@ -43,8 +43,8 @@ router.post('/', async (req, res) => {
     const { userId } = req.params
   
     try {
-      const newUser = await User.findByIdAndUpdate(userId, req.body, { new: true })
-      res.status(202).json({ user: newUser })
+      const oneUser = await User.findByIdAndUpdate(userId, req.body, { new: true })
+      res.status(202).json({ user: oneUser })
     } catch (error) {
       console.log(error)
       res.status(400).json({ error: 'Failed to update the user' })
@@ -62,6 +62,10 @@ router.post('/', async (req, res) => {
     console.log(error)
     res.status(400).json({ error: 'Failed to delete the user' });
   }
+});
+
+router.use((req, res, next) => {
+  res.status(404).send('404 - Page Not Found');
 });
 
 
