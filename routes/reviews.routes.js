@@ -49,8 +49,13 @@ router.put('/:id', isAuthenticated, async (req, res) => {
 // Delete a review by ID
 
 router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
-  await Review.findByIdAndDelete(req.params.id)
-  res.status(202).json({ message: 'Review deleted' })
+  try {
+    await Review.findByIdAndDelete(req.params.id)
+    res.status(202).json({ message: 'Review deleted' })  
+  } catch (error) {
+    console.log(error)
+    res.status(400).json({ error: 'Failed to delete the review' })
+  }
 })
 
 module.exports = router;
