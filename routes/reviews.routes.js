@@ -25,7 +25,7 @@ router.post('/', isAuthenticated, async (req, res) => {
   try {
     const newReview = await Review.create({...req.body, user: req.payload.userId})
     const fullNewReview = await Review.findById(newReview._id).populate('user')
-    res.status(201).json({ review: fullNewReview})
+    res.status(201).json({ review: fullNewReview })
   } catch (error) {
     console.log(error)
     res.status(400).json({ error: 'Failed to create a review' });
@@ -49,22 +49,8 @@ router.put('/:id', isAuthenticated, async (req, res) => {
 // Delete a review by ID
 
 router.delete('/:bookId/reviews/:id', isAuthenticated, async (req, res) => {
-  try {
-    const review = await Review.findById(req.params.id);
-    if (!review) {
-      return res.status(404).json({ error: 'Review not found' });
-    }
-
-    if (review.user.toString() !== req.payload.userId) {
-      return res.status(403).json({ error: 'You can only delete your own reviews' });
-    }
-
-    await Review.findByIdAndDelete(req.params.id);
-    res.status(204).send();
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ error: 'Failed to delete the review' });
-  }
-});
+  await Review.findByIdAndDelete(req.params.id)
+  res.status(202).json({ message: 'Review deleted' })
+})
 
 module.exports = router;
